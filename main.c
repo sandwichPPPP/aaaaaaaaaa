@@ -1,7 +1,5 @@
 #include "stm32f10x.h"                  // Device header
-#include "dac.h"
-#include "Key.h"
-#include "OLED.h"
+#i
 #include "Serial.h"
 #include "Delay.h"
 uint8_t key=0,n=0;
@@ -12,9 +10,9 @@ unsigned long TimeCounter=0;
 
 void LED4_Display (void)
 {
-unsigned char  *led_table;          // ²é±íÖ¸Õë
+unsigned char  *led_table;          // æŸ¥è¡¨æŒ‡é’ˆ
 unsigned char i;
-	//ÏÔÊ¾µÚ1Î»
+	//æ˜¾ç¤ºç¬¬1ä½
 	led_table = LED_0F + LED[0];
 	i = *led_table;
 	LED_OUT(i);			
@@ -22,7 +20,7 @@ unsigned char i;
 	GPIO_ResetBits(GPIOA, GPIO_Pin_5);
   Delay_ms(1);
 	GPIO_SetBits(GPIOA, GPIO_Pin_5);
-	//ÏÔÊ¾µÚ2Î»
+	//æ˜¾ç¤ºç¬¬2ä½
 	led_table = LED_0F + LED[1];
 	i = *led_table;
 	LED_OUT(i);		
@@ -30,15 +28,15 @@ unsigned char i;
 	GPIO_ResetBits(GPIOA, GPIO_Pin_5);
   Delay_ms(1);
 	GPIO_SetBits(GPIOA, GPIO_Pin_5);
-	//ÏÔÊ¾µÚ3Î»
+	//æ˜¾ç¤ºç¬¬3ä½
 	led_table = LED_0F + LED[2];
-	i = *led_table&0X7F;//´øĞ¡Êıµã
+	i = *led_table&0X7F;//å¸¦å°æ•°ç‚¹
 	LED_OUT(i);			
 	LED_OUT(0x04);	
 	GPIO_ResetBits(GPIOA, GPIO_Pin_5);
   Delay_ms(1);
 	GPIO_SetBits(GPIOA, GPIO_Pin_5);
-	//ÏÔÊ¾µÚ4Î»
+	//æ˜¾ç¤ºç¬¬4ä½
 	led_table = LED_0F + LED[3];
 	i = *led_table;
 	LED_OUT(i);			
@@ -47,7 +45,7 @@ unsigned char i;
   Delay_ms(1);
 	GPIO_SetBits(GPIOA, GPIO_Pin_5);
 }
-//¹Ü½ÅÊä³ö¿ØÖÆ
+//ç®¡è„šè¾“å‡ºæ§åˆ¶
 void LED_OUT(unsigned char X)
 {
 	unsigned char i;
